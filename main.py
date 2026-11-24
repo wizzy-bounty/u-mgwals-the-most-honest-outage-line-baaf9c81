@@ -46,12 +46,14 @@ ENTRY = (
     "\u2014 I won't guess."
 )
 
-MAX_CHARS = 160
+MIN_ENTRY_CHARS = 1
+MAX_ENTRY_CHARS = 160
 
 
 def main() -> None:
-    assert 1 <= len(ENTRY) <= MAX_CHARS, (
-        f"entry must be 1-{MAX_CHARS} chars, got {len(ENTRY)}"
+    assert MIN_ENTRY_CHARS <= len(ENTRY) <= MAX_ENTRY_CHARS, (
+        f"entry must be {MIN_ENTRY_CHARS}-{MAX_ENTRY_CHARS} chars, "
+        f"got {len(ENTRY)}"
     )
     assert ENTRY.strip(), "entry must not be only whitespace"
     os.makedirs("/output", exist_ok=True)
